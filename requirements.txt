@@ -1,1 +1,1 @@
-ipify autoban
+ipify, autoban
