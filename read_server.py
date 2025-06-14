@@ -49,10 +49,16 @@ if __name__ == '__main__':
     from twisted.python import log
     from twisted.internet import reactor
     from functools import partial
+    from requests import get
 
     log.startLogging(sys.stdout)
 
-    factory = WebSocketServerFactory("ws://192.168.1.117:9000")
+
+    ip = get('https://api.ipify.org').text
+    print('My public IP address is: {}'.format(ip))
+    ip = "192.168.1.117"
+
+    factory = WebSocketServerFactory("ws://" + ip + ":9000")
     factory.protocol = MyServerProtocol
     # factory.setProtocolOptions(maxConnections=2)
     # note to self: if using putChild, the child must be bytes...
