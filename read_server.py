@@ -56,7 +56,7 @@ if __name__ == '__main__':
 
     ip = get('https://api.ipify.org').text
     print('My public IP address is: {}'.format(ip))
-    ip = "192.168.1.117"
+    #ip = "192.168.1.117"
 
     factory = WebSocketServerFactory("ws://" + ip + ":9000")
     factory.protocol = MyServerProtocol
